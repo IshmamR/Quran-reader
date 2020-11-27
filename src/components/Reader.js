@@ -29,21 +29,34 @@ const Reader = () => {
 		setPageNo(Number(e.target.value));
 	}
 
+	const handleDownload = () => {
+		const a = document.createElement('a');
+		a.href = `https://api-al-quran.herokuapp.com/page?p=${pageNo}`;
+		a.target = '_blank';
+		a.referrer = 'noreferer';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+	}
+
 	return(
-		<div>
+		<div className="Reader">
 			<div className="inputs">
-				<button onClick={handlePrevPage}>&lt;</button>
+				<button onClick={handleNextPage}>&lsaquo;</button>
 				<input onChange={handlePage} type="number" value={pageNo} />
-				<button onClick={handleNextPage}>&gt;</button>
+				<button onClick={handlePrevPage}>&rsaquo;</button>
 			</div>
-			<div className="Reader">
+			<div className="QuranReader">
 				{(pageNo > 0 && pageNo <= 604)? (
+					<>
 					<img
 						className="page"
 						src={`https://api-al-quran.herokuapp.com/page?p=${pageNo}`} 
 						alt="..." 
 						key={pageNo} 
 					/>
+					<button onClick={handleDownload}>Download page</button>
+					</>
 					) : (
 					<h1>Not found...</h1>
 					)

@@ -19,16 +19,28 @@ input[type=number] {
 }
 
 .nav {
-	height: 10vh;
+	height: 8vh;
 	background-color: #000;
 	background-image: url("imgs/bg.jpg");
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
+	padding: 10px 10vw;
 }
+
 .logo {
-	max-height: 90%;
+	max-height: 7vh;
+}
+.link a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 700;
+	padding: 5px;
+}
+.link a:hover {
+	padding: 2px;
+	border: 4px double #fff;
 }
 
 .inputs {
@@ -39,6 +51,7 @@ input[type=number] {
 .inputs input {
 	height: 30px;
 	max-width: 60px;
+	padding: 2px 8px;
 	font-size: 20px;
 }
 .inputs button {
@@ -46,8 +59,9 @@ input[type=number] {
 	height: 30px;
 }
 
-.Reader {
+.QuranReader {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 3rem 0;
@@ -64,9 +78,31 @@ input[type=number] {
 	background-color: rgba(255,255,255,0.9);
 	border: 2px solid #000;
 }
+.Reader {
+	padding: 5vh 0;
+}
+.HadithReader {
+	/*background-color: #eaeffa;*/
+	min-height: 90vh;
+	padding: 5vh 0;
+}
+.hadith {
+	width: 900px;
+	max-width: 95%;
+	margin:auto;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.5;
+}
 
 @media only screen and (max-width: 540px) {
 	.Reader {
 		padding-top: 1.5rem;
+	}
+	.nav h2 {
+		display: none;
+	}
+	.hadith h1 {
+		font-size: 28px;
 	}
 }
